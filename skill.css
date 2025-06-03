@@ -1,0 +1,136 @@
+body {
+    background-color: #d3d3d3;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.color-stripes {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.stripe {
+    width: 200px; /* Full width */
+    height: 50px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    border-bottom-left-radius: 20px;
+    transform: rotate(-10deg);
+    position: relative;
+    right: -160px; /* 80% hidden */
+    transition: right 0.3s ease;
+    border: 5px solid transparent; /* Default border to ensure consistent sizing */
+}
+
+.stripe-wrapper {
+    position: relative;
+}
+
+.stripe:hover {
+    right: -5px; /* Fully visible on hover */
+}
+
+.red {
+    background-color: #ff0044;
+    border-color: #000000; /* Black border */
+}
+
+.blue {
+    background-color: #4a4aff;
+    border-color: #000000; /* Black border */
+}
+
+.green {
+    background-color: #33cc33;
+    border-color: #000000; /* Black border */
+}
+
+.orange {
+    background-color: #ff9933;
+    border-color: #000000; /* Black border */
+}
+
+.skills-container {
+    background-color: #ffffff;
+    border: 2px solid #000;
+    border-radius: 20px;
+    padding: 20px;
+    width: 60%;
+    border-width:  2px 10px 10px 2px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+.skills-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.skills-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between icons */
+}
+
+.skills-icons i {
+    font-size: 48px;
+    color: #555;
+    border: 2px solid #000; /* Border around each icon */
+    padding: 10px; /* Padding inside the border */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.skills-icons i:hover {
+    transform: scale(1.2);
+    color: #000; /* Change color on hover */
+    border-color: #555; /* Change border color on hover */
+}
+
+
+.proficiency-box {
+    background-color: #ccc;
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 20px;
+    overflow: hidden;
+    border: #000 2px solid;
+    border-width: 0px 4px 4px 0px;
+}
+
+.proficiency-level {
+    height: 100%;
+    background-color: #4caf50;
+    width: 0;
+    border: #000 2px solid;
+    border-width: 0px 4px 4px 0px;
+    border-radius: 5px ;
+    transition: width 0.3s ease;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    line-height: 30px; /* Match the height of the proficiency box */
+}

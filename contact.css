@@ -1,0 +1,140 @@
+body {
+    background-color: #d3d3d3;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.color-stripes {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.stripe {
+    width: 200px; /* Full width */
+    height: 50px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    border-bottom-left-radius: 20px;
+    transform: rotate(-10deg);
+    position: relative;
+    right: -160px; /* 80% hidden */
+    transition: right 0.3s ease;
+    border: 5px solid transparent; /* Default border to ensure consistent sizing */
+}
+
+.stripe-wrapper {
+    position: relative;
+}
+
+.stripe:hover {
+    right: -5px; /* Fully visible on hover */
+}
+
+.red {
+    background-color: #ff0044;
+    border-color: #000000; /* Black border */
+}
+
+.blue {
+    background-color: #4a4aff;
+    border-color: #000000; /* Black border */
+}
+
+.green {
+    background-color: #33cc33;
+    border-color: #000000; /* Black border */
+}
+
+.orange {
+    background-color: #ff9933;
+    border-color: #000000; /* Black border */
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    width: 60%;
+}
+
+.grid-item {
+    background-color: #ffffff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    border-top-right-radius: 100px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-width 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-width: 2px 10px 10px 2px;
+}
+
+    
+.grid-item i {
+    font-size: 48px;
+    color: #000000;
+    transition: color 0.3s ease;
+    z-index: 2; /* Ensure icon stays above details */
+    
+}
+
+
+.grid-item .details{
+    opacity: 0;
+    z-index: 1;
+    position: absolute;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    width: 250px;
+    border-top-right-radius: 10px;
+    z-index: 3;
+    border-width: 2px 2px 2px 2px; /* Border change on hover */
+    border-color: #9c9c9c; /* Optional: Change border color on hover */
+}
+.grid-item:hover .details{
+    opacity: 1;
+    z-index: 3;
+}
+.grid-item:hover i {
+    color: #7f7c7c;
+    z-index: 3;
+}

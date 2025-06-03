@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tusharkanta | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="colorpallete.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <div class="page-wrapper">
+        <!-- Unique Menu Bar -->
+        <div class="unique-menu-container">
+            <nav class="unique-nav">
+                <ul class="menu-items">
+                    <li class="menu-item active">
+                        <a href="index.html">
+                            <span class="menu-icon"><i class="fas fa-home"></i></span>
+                            <span class="menu-text">Home</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="about.html">
+                            <span class="menu-icon"><i class="fas fa-user-circle"></i></span>
+                            <span class="menu-text">About</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="skill.html">
+                            <span class="menu-icon"><i class="fas fa-laptop-code"></i></span>
+                            <span class="menu-text">Skills</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="contact.html">
+                            <span class="menu-icon"><i class="fas fa-paper-plane"></i></span>
+                            <span class="menu-text">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="logo-container">
+            <div class="logo">TK</div>
+        </div>
+            
+        <div class="menu-controls">
+            <div class="music-player">
+                <div class="music-toggle">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="music-visualizer">
+                    <canvas id="visualizer-canvas" width="60" height="30"></canvas>
+                </div>
+                <div class="music-controls">
+                    <button id="play-pause-btn"><i class="fas fa-play"></i></button>
+                    <div class="track-info">
+                        <span id="track-name">Ambient Music</span>
+                    </div>
+                </div>
+            </div>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <ul>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="skill.html"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="profile-image">
+                    <img src="assets/profile1.png" alt="Tusharkanta's Profile" class="profile-pic">
+                    <div class="image-backdrop"></div>
+                </div>
+                <div class="hero-text">
+            <h1 id="hover-text">
+                <span class="hover-letter">H</span>
+                <span class="hover-letter">e</span>
+                <span class="hover-letter">l</span>
+                <span class="hover-letter">l</span>
+                <span class="hover-letter">o</span>
+                <span> </span>
+                <span class="hover-letter">T</span>
+                <span class="hover-letter">h</span>
+                <span class="hover-letter">e</span>
+                <span class="hover-letter">r</span>
+                <span class="hover-letter">e</span>
+            </h1>
+                    <h2 class="intro-text">
+                        I'm <span class="highlight-name">Tusharkanta</span>
+                        <picture class="wave-emoji">
+                    <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f44b/512.webp" type="image/webp">
+                    <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f44b/512.gif" alt="👋" width="32" height="32">
+                </picture>
+            </h2>
+                    <p class="tagline" id="typing-text"></p>
+                    <div class="cta-buttons">
+                        <a href="about.html" class="btn primary-btn">About Me</a>
+                        <a href="contact.html" class="btn secondary-btn">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <!-- Scroll to Top Button -->
+        <button id="scroll-to-top" class="scroll-top-btn">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script>
+        // Initialize theme-dependent variables
+        let originalColor = document.documentElement.getAttribute('data-theme') === 'dark' ? '#fff' : '#000';
+        
+        // Particles.js configuration
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#a42cd6"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#a42cd6",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Menu hover effects with magnetic pull
+        const menuItems = document.querySelectorAll('.menu-item');
+        const menuContainer = document.querySelector('.menu-items');
+        let activeItem = document.querySelector('.menu-item.active');
+        let activeItemHTML = activeItem ? activeItem.outerHTML : '';
+        let activeItemIndex = Array.from(menuItems).findIndex(item => item.classList.contains('active'));
+        
+        // Store the original menu structure
+        const originalMenuStructure = menuContainer.innerHTML;
+        
+        // Function to remove active item from menu
+        function removeActiveItem() {
+            activeItem = document.querySelector('.menu-item.active');
+            if (!activeItem) return;
+            
+            activeItemHTML = activeItem.outerHTML;
+            activeItemIndex = Array.from(menuContainer.children).findIndex(item => item === activeItem);
+            
+            // Add removing class for animation
+            activeItem.classList.add('removing');
+            
+            // After animation completes, remove the item
+            setTimeout(() => {
+                activeItem.remove();
+            }, 500);
+        }
+        
+        // Function to restore menu structure when clicking on a non-active item
+        function handleMenuItemClick(e) {
+            const clickedItem = e.currentTarget;
+            
+            // If already active or animation in progress, do nothing
+            if (clickedItem.classList.contains('active') || document.querySelector('.menu-item.removing') || document.querySelector('.menu-item.adding')) {
+                return;
+            }
+            
+            // First, add back the previously removed active item if it's not in the DOM
+            if (activeItemHTML && !document.querySelector(`.menu-item[href="${activeItem.querySelector('a').getAttribute('href')}"]`)) {
+                // Create a temporary container
+                const temp = document.createElement('div');
+                temp.innerHTML = activeItemHTML;
+                const newItem = temp.firstElementChild;
+                
+                // Remove active class from the previously active item
+                newItem.classList.remove('active');
+                newItem.classList.add('adding');
+                
+                // Add it back to its original position
+                if (activeItemIndex === 0) {
+                    menuContainer.prepend(newItem);
+                } else if (activeItemIndex >= menuContainer.children.length) {
+                    menuContainer.appendChild(newItem);
+                } else {
+                    menuContainer.insertBefore(newItem, menuContainer.children[activeItemIndex]);
+                }
+                
+                // Remove the adding class after animation completes
+                setTimeout(() => {
+                    newItem.classList.remove('adding');
+                    
+                    // Add event listeners to the new item
+                    addEventListenersToMenuItem(newItem);
+                }, 500);
+            }
+            
+            // Set the clicked item as active
+            clickedItem.classList.add('active');
+            
+            // Remove the newly active item
+            setTimeout(() => {
+                removeActiveItem();
+            }, 100);
+        }
+        
+        // Function to add all event listeners to a menu item
+        function addEventListenersToMenuItem(item) {
+            // Click event
+            item.addEventListener('click', handleMenuItemClick);
+            
+            // Magnetic effect
+            item.addEventListener('mousemove', function(e) {
+                const rect = item.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                // Magnetic pull effect for all items (including active)
+                if (item.classList.contains('active')) {
+                    // Stronger magnetic effect for active items
+                    const strength = 0.4; // Increased strength for more noticeable effect
+                    const iconStrength = 0.3; // Slightly less for icon to create layered effect
+                    
+                    // Apply magnetic effect to the link
+                    item.querySelector('a').style.transform = `translate(${x * strength}px, ${y * strength}px) scale(1.2)`;
+                    
+                    // Apply magnetic effect to the icon
+                    item.querySelector('.menu-icon').style.transform = `translate(${x * iconStrength}px, ${y * iconStrength}px) translateY(-12px)`;
+                    
+                    // Apply magnetic effect to the background circle (::before pseudo-element)
+                    // We can't directly manipulate pseudo-elements with JS, so we use a CSS variable
+                    item.style.setProperty('--magnetic-x', `${x * 0.2}px`);
+                    item.style.setProperty('--magnetic-y', `${y * 0.2}px`);
+                    item.style.setProperty('--magnetic-scale', '1.05');
+                    
+                    // Add a subtle rotation based on mouse position
+                    const rotationAmount = Math.max(-5, Math.min(5, x * 0.05));
+                    item.style.setProperty('--rotation', `${rotationAmount}deg`);
+                } else {
+                    // Normal magnetic effect for inactive items
+                    item.querySelector('a').style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.1)`;
+                    item.querySelector('.menu-icon').style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) translateY(-8px)`;
+                }
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                if (item.classList.contains('active')) {
+                    // Reset to default active state
+                    item.querySelector('a').style.transform = 'scale(1.2)';
+                    item.querySelector('.menu-icon').style.transform = 'translateY(-12px)';
+                    
+                    // Reset the CSS variables
+                    item.style.setProperty('--magnetic-x', '0px');
+                    item.style.setProperty('--magnetic-y', '0px');
+                    item.style.setProperty('--magnetic-scale', '1');
+                    item.style.setProperty('--rotation', '0deg');
+                } else {
+                    // Reset to default inactive state
+                    item.querySelector('a').style.transform = '';
+                    item.querySelector('.menu-icon').style.transform = '';
+                }
+            });
+            
+            // Prevent text from showing on click
+            item.querySelector('a').addEventListener('click', function(e) {
+                // Prevent default to handle navigation manually
+                e.preventDefault();
+                
+                // Hide text for all items
+                document.querySelectorAll('.menu-text').forEach(text => {
+                    text.style.opacity = '0';
+                });
+                
+                // Navigate to the page after animations complete
+                const href = this.getAttribute('href');
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 600);
+            });
+        }
+        
+        // Add event listeners to all menu items
+        menuItems.forEach(item => {
+            addEventListenersToMenuItem(item);
+        });
+        
+        // Remove active item on page load
+        setTimeout(removeActiveItem, 1000);
+        
+        // Menu container hover effect
+        menuContainer.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+        });
+        
+        menuContainer.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+
+        // Dark mode toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const htmlElement = document.documentElement;
+        
+        themeToggle.addEventListener('click', function() {
+            if (htmlElement.getAttribute('data-theme') === 'light') {
+                htmlElement.setAttribute('data-theme', 'dark');
+                this.querySelector('i').classList.remove('fa-moon');
+                this.querySelector('i').classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+                originalColor = '#fff'; // Update originalColor for dark theme
+            } else {
+                htmlElement.setAttribute('data-theme', 'light');
+                this.querySelector('i').classList.remove('fa-sun');
+                this.querySelector('i').classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+                originalColor = '#000'; // Update originalColor for light theme
+            }
+        });
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+            if (savedTheme === 'dark') {
+                themeToggle.querySelector('i').classList.remove('fa-moon');
+                themeToggle.querySelector('i').classList.add('fa-sun');
+                originalColor = '#fff';
+            } else {
+                originalColor = '#000';
+            }
+        }
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Hide menu when scrolling down, show when scrolling up
+        let lastScrollTop = 0;
+        const uniqueMenuContainer = document.querySelector('.unique-menu-container');
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 300) {
+                // Scrolling down
+                uniqueMenuContainer.style.transform = 'translate(-50%, 100px)';
+                uniqueMenuContainer.style.opacity = '0';
+            } else {
+                // Scrolling up
+                uniqueMenuContainer.style.transform = 'translate(-50%, 0)';
+                uniqueMenuContainer.style.opacity = '1';
+            }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        // Letter hover effect
+        const predefinedColors = ['#FF5733', '#33FF57', '#3357FF', '#F1C40F', '#8E44AD', '#E74C3C'];
+        
+        document.querySelectorAll('.hover-letter').forEach(letter => {
+            letter.addEventListener('mouseover', () => {
+                letter.style.color = getRandomPredefinedColor();
+                letter.style.transform = 'scale(1.2) rotate(5deg)';
+            });
+
+            letter.addEventListener('mouseout', () => {
+                letter.style.color = originalColor;
+                letter.style.transform = 'scale(1) rotate(0)';
+            });
+        });
+
+        function getRandomPredefinedColor() {
+            return predefinedColors[Math.floor(Math.random() * predefinedColors.length)];
+        }
+
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const phrases = ['A Developer', 'A system adminstrator', 'A Problem Solver', 'A Tech Enthusiast'];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                typingText.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
+            
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typingSpeed = 1000; // Pause at the end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 500; // Pause before typing next phrase
+            }
+            
+            setTimeout(typeEffect, typingSpeed);
+        }
+
+        // Start the typing animation
+        setTimeout(typeEffect, 1000);
+
+        // Animate progress bars when they come into view
+        const progressBars = document.querySelectorAll('.progress-bar');
+        
+        function animateProgressBars() {
+            progressBars.forEach(bar => {
+                const targetWidth = bar.getAttribute('data-width');
+                bar.style.width = targetWidth;
+            });
+        }
+        
+        // Use Intersection Observer to detect when skills section is visible
+        const skillsSection = document.querySelector('.skills-section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateProgressBars, 300);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        observer.observe(skillsSection);
+
+        // Music Player and Visualizer
+        const musicPlayer = document.querySelector('.music-player');
+        const musicToggle = document.querySelector('.music-toggle');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const visualizerCanvas = document.getElementById('visualizer-canvas');
+        const canvasCtx = visualizerCanvas.getContext('2d');
+        const trackName = document.getElementById('track-name');
+        
+        // Create audio context and setup
+        let audioContext;
+        let audioSource;
+        let analyser;
+        const audio = new Audio();
+        
+        // Define playlist
+        const playlist = [
+            { title: 'Lokiverse', src: 'assets/music/Lokiverse.mp3' },
+            { title: 'Rolex Theme', src: 'assets/music/Rolex Theme.mp3' },
+            { title: 'Run It Up', src: 'assets/music/Run It Up.mp3' }
+        ];
+        
+        let currentTrackIndex = 0;
+        audio.src = playlist[currentTrackIndex].src;
+        audio.loop = true;
+        // Set audio to muted initially to help with autoplay
+        audio.muted = true;
+        
+        // Initialize audio context on page load
+        function initAudio() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                audioSource = audioContext.createMediaElementSource(audio);
+                analyser = audioContext.createAnalyser();
+                
+                analyser.fftSize = 256;
+                const bufferLength = analyser.frequencyBinCount;
+                const dataArray = new Uint8Array(bufferLength);
+                
+                audioSource.connect(analyser);
+                analyser.connect(audioContext.destination);
+                
+                // Start visualizer
+                visualize();
+                
+                // Resume audio context if it's suspended
+                if (audioContext.state === 'suspended') {
+                    audioContext.resume();
+                }
+            } else if (audioContext.state === 'suspended') {
+                // Resume audio context if it's suspended
+                audioContext.resume();
+            }
+        }
+        
+        // Try to autoplay when page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            // Show the music player expanded initially
+            musicPlayer.classList.remove('collapsed');
+            musicPlayer.classList.add('expanded');
+            
+            // Initialize audio
+            initAudio();
+            
+            // First try to play muted (more likely to succeed)
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // Autoplay started successfully (but muted)
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    
+                    // Update track name display
+                    const filename = audio.src.split('/').pop().split('.')[0];
+                    trackName.textContent = filename;
+                    
+                    // Now try to unmute after a short delay
+                    setTimeout(() => {
+                        // Try to unmute
+                        audio.muted = false;
+                    }, 1000);
+                }).catch(error => {
+                    // Only show notification if autoplay was actually prevented
+                    console.log("Autoplay prevented:", error);
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    showPlayNotification();
+                });
+            }
+            
+            // Try to play on various user interactions, but only if music isn't already playing
+            const tryToPlay = () => {
+                if (audio.paused || audio.muted) {
+                    audio.muted = false;
+                    audio.play().then(() => {
+                        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                        // Remove any notification if music starts playing
+                        const notification = document.querySelector('.autoplay-notification');
+                        if (notification && notification.parentNode) {
+                            notification.parentNode.removeChild(notification);
+                        }
+                    }).catch(e => console.log("Couldn't play on interaction:", e));
+                }
+            };
+            
+            // Add event listeners to various elements
+            document.addEventListener('click', tryToPlay, { once: true });
+            document.addEventListener('touchstart', tryToPlay, { once: true });
+            document.addEventListener('scroll', tryToPlay, { once: true });
+            document.addEventListener('keydown', tryToPlay, { once: true });
+            
+            // Also try to play after a short delay
+            setTimeout(() => {
+                // Only try again if music isn't already playing
+                if (audio.paused || audio.muted) {
+                    tryToPlay();
+                }
+            }, 2000);
+        });
+        
+        // Function to show play notification
+        function showPlayNotification() {
+            // Check if music is already playing - don't show notification in that case
+            if (!audio.paused && !audio.muted) {
+                return;
+            }
+            
+            // Remove any existing notification first
+            const existingNotification = document.querySelector('.autoplay-notification');
+            if (existingNotification) {
+                existingNotification.parentNode.removeChild(existingNotification);
+            }
+            
+            // Create a more prominent notification
+            const notification = document.createElement('div');
+            notification.className = 'autoplay-notification prominent';
+            notification.innerHTML = `
+                <div class="notification-title"><i class="fas fa-bell"></i> Autoplay Blocked</div>
+                <div class="notification-message">
+                    Your browser blocked autoplay. 
+                    <span class="notification-actions">
+                        <button id="allow-autoplay-btn">Enable Music</button>
+                        <a href="#" id="settings-help">Browser Settings</a>
+                    </span>
+                </div>
+            `;
+            
+            // Add to page (not just to music player for more visibility)
+            document.body.appendChild(notification);
+            
+            // Add event listeners to the notification buttons
+            const allowButton = document.getElementById('allow-autoplay-btn');
+            const settingsHelp = document.getElementById('settings-help');
+            
+            allowButton.addEventListener('click', () => {
+                audio.muted = false;
+                audio.play().then(() => {
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    // Remove notification on successful play
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }).catch(e => {
+                    console.log("Still couldn't play after button click:", e);
+                    // Change notification to show it still didn't work
+                    notification.innerHTML = `
+                        <div class="notification-title"><i class="fas fa-exclamation-triangle"></i> Still Blocked</div>
+                        <div class="notification-message">
+                            Please adjust your browser settings to allow autoplay.
+                            <span class="notification-actions">
+                                <a href="#" id="settings-help-2">How to enable</a>
+                                <button id="dismiss-btn">Dismiss</button>
+                            </span>
+                        </div>
+                    `;
+                    
+                    // Add new event listeners
+                    document.getElementById('settings-help-2').addEventListener('click', showAutoplayHelp);
+                    document.getElementById('dismiss-btn').addEventListener('click', () => {
+                        if (notification.parentNode) {
+                            notification.parentNode.removeChild(notification);
+                        }
+                    });
+                });
+            });
+            
+            settingsHelp.addEventListener('click', showAutoplayHelp);
+            
+            // Auto-remove after 15 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.classList.add('fade-out');
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.parentNode.removeChild(notification);
+                        }
+                    }, 1000);
+                }
+            }, 15000);
+        }
+        
+        // Function to show autoplay help based on browser
+        function showAutoplayHelp(e) {
+            e.preventDefault();
+            
+            // Detect browser
+            const isChrome = navigator.userAgent.indexOf("Chrome") > -1;
+            const isFirefox = navigator.userAgent.indexOf("Firefox") > -1;
+            const isSafari = navigator.userAgent.indexOf("Safari") > -1 && !isChrome;
+            const isEdge = navigator.userAgent.indexOf("Edg") > -1;
+            
+            let helpText = '';
+            
+            if (isChrome || isEdge) {
+                helpText = "Chrome/Edge: Click the lock/info icon in the address bar → Site Settings → Sound → Allow";
+            } else if (isFirefox) {
+                helpText = "Firefox: Click the lock icon in the address bar → Autoplay → Allow Audio and Video";
+            } else if (isSafari) {
+                helpText = "Safari: Go to Safari Preferences → Websites → Auto-Play → Allow All Auto-Play";
+            } else {
+                helpText = "Please check your browser settings to allow autoplay for this site.";
+            }
+            
+            // Create and show help modal
+            const modal = document.createElement('div');
+            modal.className = 'autoplay-help-modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h3>How to Enable Autoplay</h3>
+                    <p>${helpText}</p>
+                    <div class="browser-icons">
+                        <i class="fab fa-chrome" title="Chrome"></i>
+                        <i class="fab fa-firefox" title="Firefox"></i>
+                        <i class="fab fa-safari" title="Safari"></i>
+                        <i class="fab fa-edge" title="Edge"></i>
+                    </div>
+                    <p class="modal-note">After changing settings, you may need to refresh the page.</p>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Close modal functionality
+            const closeBtn = modal.querySelector('.close-modal');
+            closeBtn.addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+            
+            // Close when clicking outside the modal
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    document.body.removeChild(modal);
+                }
+            });
+        }
+        
+        // Toggle music player expanded/collapsed state
+        musicToggle.addEventListener('click', () => {
+            musicPlayer.classList.toggle('collapsed');
+            musicPlayer.classList.toggle('expanded');
+        });
+        
+        // Play/Pause button functionality
+        playPauseBtn.addEventListener('click', () => {
+            if (!audioContext) initAudio();
+            
+            if (audio.paused) {
+                audio.muted = false; // Make sure it's not muted when manually played
+                audio.play().then(() => {
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    // Update track name display
+                    const filename = audio.src.split('/').pop().split('.')[0];
+                    trackName.textContent = filename;
+                    
+                    // Remove notification if it exists
+                    const notification = musicPlayer.querySelector('.autoplay-notification');
+                    if (notification) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }).catch(error => {
+                    console.log("Play prevented:", error);
+                });
+            } else {
+                audio.pause();
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        });
+        
+        // Visualizer function
+        function visualize() {
+            const WIDTH = visualizerCanvas.width;
+            const HEIGHT = visualizerCanvas.height;
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+            
+            canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
+            
+            function draw() {
+                requestAnimationFrame(draw);
+                
+                analyser.getByteFrequencyData(dataArray);
+                
+                canvasCtx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+                canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
+                
+                const barWidth = (WIDTH / bufferLength) * 2.5;
+                let barHeight;
+                let x = 0;
+                
+                for (let i = 0; i < bufferLength; i++) {
+                    barHeight = dataArray[i] / 8;
+                    
+                    // Use gradient based on the theme
+                    const gradient = canvasCtx.createLinearGradient(0, 0, 0, HEIGHT);
+                    if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                        gradient.addColorStop(0, '#a42cd6');
+                        gradient.addColorStop(1, '#502274');
+                    } else {
+                        gradient.addColorStop(0, '#c179b9');
+                        gradient.addColorStop(1, '#a42cd6');
+                    }
+                    
+                    canvasCtx.fillStyle = gradient;
+                    canvasCtx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+                    
+                    x += barWidth + 1;
+                }
+            }
+            
+            draw();
+        }
+        
+        // Don't set collapsed initially since we want it expanded
+        // musicPlayer.classList.add('collapsed');
+        
+        // Add a document-wide click handler to help with autoplay
+        // Many browsers require a user interaction before allowing audio
+        document.addEventListener('click', function documentClickHandler() {
+            // Only try to play if music isn't already playing
+            if (audio.paused || audio.muted) {
+                audio.muted = false;
+                audio.play().then(() => {
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    
+                    // Remove any notification if music starts playing
+                    const notification = document.querySelector('.autoplay-notification');
+                    if (notification && notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }).catch(e => {
+                    console.log("Still couldn't play after user interaction:", e);
+                });
+            }
+            // Remove this handler after first click
+            document.removeEventListener('click', documentClickHandler);
+        }, { once: true });
+    </script>
+</body>
+</html>
